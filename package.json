@@ -1,0 +1,19 @@
+{
+  "private": true,
+  "scripts": {
+    "node-sass": "node-sass -o public/assets/styles src/styles -wr --output-style compressed",
+    "dev": "shadow-cljs watch app",
+    "start": "parallelshell \"yarn dev\" \"yarn node-sass\"",
+    "repl": "npx shadow-cljs cljs-repl :app",
+    "build": "rm -r public/js && shadow-cljs release app"
+  },
+  "dependencies": {
+    "create-react-class": "^15.6.3",
+    "node-sass": "^4.12.0",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0"
+  },
+  "devDependencies": {
+    "shadow-cljs": "^2.7.30"
+  }
+}
