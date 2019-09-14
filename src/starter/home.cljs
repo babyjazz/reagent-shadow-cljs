@@ -1,6 +1,7 @@
 (ns starter.home
   (:require [reagent.core :as r]
-            ["react" :as React]))
+            ["react" :as React]
+            ["react-router-dom" :refer (Link)]))
 
 (def fragment (r/adapt-react-class (.-Fragment React)))
 
@@ -11,4 +12,6 @@
            :width 140
            :height 140}]
     [:h1 "Welcome to react with reagent"]
-    [:h3 "Edit file at core.cljs"]]])
+    [:h3 "Edit file at core.cljs"]
+    [:> Link {:to "/about"}
+     [:button "Go to about page"]]]])
