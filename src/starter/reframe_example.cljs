@@ -2,7 +2,13 @@
   (:require [reagent.core :as r]
             [re-frame.core :as rf]))
 
-(rf/reg-event-db ; Dispatch state, Like reducer
+; Initial global state with re-frame; Like using redux
+(rf/reg-event-db
+ :initialize
+ (fn [_ _]
+   {:number 1}))
+
+(rf/reg-event-db ; Like reducer
  :reset-number
  (fn [db [_ new-number]]
    (assoc db :number new-number)))
@@ -12,12 +18,12 @@
  (fn [db _]
    (assoc db :number (inc (get db :number)))))
 
-(rf/reg-sub ; Subscribe state, Like connect()()
+(rf/reg-sub ; Subscribe state, Like mapStateToProps
  :number
  (fn [db _]
    (:number db)))
 
-(defn dispatch-number-event ; Like mapStateToProps
+(defn dispatch-number-event ; Like mapDispatchToProps
   [new-number]
   (rf/dispatch [:reset-number new-number]))
 
