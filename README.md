@@ -4,6 +4,7 @@ Switch branch to example you want to get start or learn
 ### Requirement
 - node-sass ``` npm i -g node-sass ```
 - shadow-cljs ``` npm i -g shadow-cljs ```
+- parallelshell v3.0.1 ``` npm i -g parallelshell@3.0.1 ```
 
 ### Installation
 ```
