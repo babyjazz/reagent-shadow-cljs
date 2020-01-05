@@ -16,6 +16,7 @@ yarn install
 yarn start
 ```
 Server will start at http://localhost:3000
+Toggle devtool by ``` ctrl + h ```
 
 ### Connect REPL
 ```

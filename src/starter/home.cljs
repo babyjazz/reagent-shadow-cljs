@@ -11,4 +11,5 @@
            :width 140
            :height 140}]
     [:h1 "Welcome to react with reagent"]
-    [:h3 "Edit file at core.cljs"]]])
+    [:h3 "Edit file at core.cljs"]
+    [:p "Toggle devtool by 'ctrl + h'"]]])
