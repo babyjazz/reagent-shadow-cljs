@@ -1,7 +1,7 @@
 {
   "private": true,
   "scripts": {
-    "node-sass": "node-sass -o public/assets/styles src/styles -wr --output-style compressed",
+    "node-sass": "node-sass -w ./src/styles/index.scss ./public/assets/styles/index.css --output-style compressed",
     "dev": "shadow-cljs watch app",
     "start": "parallelshell \"yarn dev\" \"yarn node-sass\"",
     "repl": "npx shadow-cljs cljs-repl :app",
