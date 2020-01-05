@@ -1,20 +1,23 @@
 (ns starter.core
-  (:require [reagent.core :as r]
-            [re-frame.core :as rf]
-            [starter.home :refer [Home]]
-            [starter.reframe-example :refer [ReframeExample]]))
+  (:require
+   [re-frame.core :as rf]
+   [starter.reframe.store]
+   [starter.reframe.events]
+   [reagent.core :as r]
+   [starter.home :refer [Home]]))
 
 (defn app []
-  [:div
-   [Home]
-   [ReframeExample]])
+  (let [ready?  (re-frame.core/subscribe [:initialized?])]
+    (if-not @ready?
+      [:div "Loading ..."]
+      [Home])))
 
 (defn stop []
   (js/console.log "Stopping..."))
 
 (defn start []
   (js/console.log "Starting...")
-  (rf/dispatch-sync [:initialize]) ; :initialize state. Define before app start
+  (rf/dispatch [:initialize]) ; :initialize state. Define before app start
   (r/render [app]
             (.getElementById js/document "app")))
 
